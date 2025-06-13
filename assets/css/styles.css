@@ -1,0 +1,422 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+
+
+.jumbotron {
+    background: #333;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.jumbotron .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.jumbotron h1 {
+    font-size: xx-large;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.jumbotron .lead {
+    font-size: x-large;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.jumbotron hr {
+    border: none;
+    height: 2px;
+    background: rgb(133, 133, 133);
+    margin: 15px;
+}
+
+
+/* Form Styles */
+.form_container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+
+/* Buttons Container */
+.redirect {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.redirect a {
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 16px;
+    font-weight: 600;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.redirect a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+
+
+
+/* Buttons */
+.button {
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 16px;
+    font-size: small;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+
+/* https://www.w3schools.com/howto/howto_css_product_card.asp */
+/* Product Cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 250px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    margin: 15px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+}
+
+
+/* ai helped cause i struggled to find a full solution to make the product cards look good */
+.card .image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .caption {
+    padding: 1.5rem;
+}
+
+.card .title {
+    font-size: large;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.card .price {
+    font-size: larger;
+    font-weight: 700;
+    color: #00ff55;
+    margin-bottom: 5px;
+}
+
+/* checkout  */
+.card .total {
+    font-size: larger;
+    font-weight: 700;
+    color: #ff0000;
+    padding-top: 0.5rem;
+    margin-top: 1rem;
+}
+
+.card .category_name {
+    background: gray;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+
+.card .product_condition, .card .location, .card .username, .card .listing_created, .card .product_descr {
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.span {
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 5px; 
+}
+
+.card .status {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 5px;    
+}
+
+
+/* .card .product_descr {
+    color: #333;
+    line-height: 1.5;
+    margin: 10px;
+} */
+
+.card a {
+    display: block;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
+
+.card a:hover {
+    background: #555;
+}
+
+/* Card action buttons container */
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.card-actions a,
+.card-actions button,
+.card-actions form {
+    flex: 1;
+}
+
+/* Delete button styling */
+.card .delete-form {
+    margin: 0;
+    padding: 0;
+}
+
+.card .delete-btn {
+    display: block;
+    width: 100%;
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.card .delete-btn:hover {
+    background: #c82333;
+}
+
+/* Admin delete button in table */
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+
+
+
+
+/* Admin Dashboard */
+/* ai helped with this(claude - 6 June) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.order_summary {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.order_summary h3 {
+    color: #2d3436;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.order_summary p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.order_summary b {
+    color: #00b894;
+    font-size: 1.2rem;
+}
+
+
+/* Table Styles */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.summary-table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+.summary-table th {
+    background: #333;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.summary-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.summary-table .center {
+    text-align: center;
+}
+
+.summary-table .right {
+    text-align: right;
+    font-weight: 600;
+    color: #00b894;
+}
+
+.no-products-msg {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+
+
+
+/* Footer */
+footer {
+    background: #333;
+    color: grey;
+    text-align: center;
+    padding: 25px;
+    margin-top: auto;
+}
+
+
+
+
+
+
+
+/* Show/Hide Password Checkbox */
+input[type="checkbox"] {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+/* Image Preview */
+#preview {
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+
+
+
