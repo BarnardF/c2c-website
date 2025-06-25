@@ -42,7 +42,9 @@ include('includes/error_msg.php');
             <input type="checkbox" onclick="toggle_confirmed_Password()">Show Password:
         </div>
 
-        <button type="submit" class="button" name="register">Register</button>
+        <div class="button-container">
+            <button type="submit" class="button" name="register">Register</button>
+        </div>
     </form>
 
     <div class="links">

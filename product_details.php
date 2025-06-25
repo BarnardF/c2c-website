@@ -48,12 +48,19 @@ if ($result && $result->num_rows > 0) {
             <p class="title"><?php echo htmlspecialchars($product['title']); ?></p>
             <p class="price">R<?php echo number_format($product['price'], 2); ?></p>
             <p class="category_name"><?php echo isset($product['category_name']) ? htmlspecialchars($product['category_name']) : 'Unknown'; ?></p>
+            <p class="product_descr">
+                <?php 
+                $product_descr = htmlspecialchars($product['product_descr']);
+                echo strlen($product_descr) > 100 ? substr($product_descr, 0, 100) . '...' : $product_descr; 
+                ?>
+            </p>
+
             <p class="product_condition"><b>Condition: </b> <?php echo htmlspecialchars($product['product_condition']); ?></p>
             <p class="location"><b>Location: </b> <?php echo htmlspecialchars($product['location']); ?></p>
-            <p class="username"><b>Seller: </b> <?php echo isset($product['username']) ? htmlspecialchars($product['username']) : 'Unknown'; ?></p>
-            <p class="listing_created"><b><?php echo date("j M Y", strtotime($product['listing_created'])); ?></b></p>
 
-            <p class="shipping_options"> <b>
+            
+
+            <p class="shipping_options"> <b>Pickup/delivery: </b>
                 <?php 
                 $shipping = $product['shipping_options'];
                 $shipping_display = [
@@ -63,15 +70,10 @@ if ($result && $result->num_rows > 0) {
                 ];
                 echo isset($shipping_display[$shipping]) ? $shipping_display[$shipping] : ucfirst($shipping);
                 ?>
-                </b>
             </p>
 
-            <p class="product_descr">
-                <?php 
-                $product_descr = htmlspecialchars($product['product_descr']);
-                echo strlen($product_descr) > 100 ? substr($product_descr, 0, 100) . '...' : $product_descr; 
-                ?>
-            </p>
+            <p class="username"><b>Seller: </b> <?php echo isset($product['username']) ? htmlspecialchars($product['username']) : 'Unknown'; ?></p>
+            <p class="listing_created"><b>Listed: </b><?php echo date("j M Y", strtotime($product['listing_created'])); ?></p>
 
             <?php if (isset($_SESSION['user']) && $_SESSION['user_id'] == $product['user_id']): ?>
                 <p class="ownership-status"><b>This is your listing</b></p>

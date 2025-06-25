@@ -31,6 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //handling image upload, ai helped with this
     //https://www.w3schools.com/php/php_file_upload.asp
+    //https://youtu.be/6iERr1ADFz8?si=QJTUdtbGkzfpL4Aj Image name rename
+    //https://youtu.be/JaRq73y5MJk?si=lxL4bCXVhVU-3kq6
+    //https://youtu.be/1NiJcZrPHvA?si=co7_hpa2PVGqayvF
+
     $image_path = null;
     if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] == 0) {
         $allowed_types = ['image/jpeg', 'image/png'];

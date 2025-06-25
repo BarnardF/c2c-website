@@ -83,8 +83,9 @@ $products = $stmt->get_result();
                 <option value="asc" <?php if ($sort_order == 'asc') echo 'selected'; ?>>Lowest to Highest</option>
             </select>
         </div>
-        
-        <button type="submit" class="button">Apply Filters</button>
+        <div class="button-container">
+            <button type="submit" class="button">Apply Filters</button>
+        </div>
     </form>
 </div>
 
@@ -104,17 +105,19 @@ $products = $stmt->get_result();
                 <div class="caption">
                     <p class="title"><?php echo htmlspecialchars($product['title']); ?></p>
                     <p class="price">R<?php echo number_format($product['price'], 2); ?></p>
-                    <p class="category_name"><?php echo htmlspecialchars($product['category_name']); ?></p>
-                    <p class="product_condition"><?php echo htmlspecialchars($product['product_condition'] ?? 'N/A'); ?></p>
-                    <p class="location"><?php echo htmlspecialchars($product['location'] ?? 'Not specified'); ?></p>
-                    <p class="username"><?php echo htmlspecialchars($product['username']); ?></p>
-                    <p class="listing_created"><?php echo date('j M Y', strtotime($product['listing_created'])); ?></p>
+                    <!--<p class="category_name"><?php echo htmlspecialchars($product['category_name']); ?></p>-->
+                    <!--<p class="product_condition"><b>Condition: </b><?php echo htmlspecialchars($product['product_condition'] ?? 'N/A'); ?></p>-->
+                    
+                    <!--<p class="username"><b>Seller: </b><?php echo htmlspecialchars($product['username']); ?></p>-->
+                    
                     <p class="product_descr">
                         <?php 
                         $product_descr = htmlspecialchars($product['product_descr']);
                         echo strlen($product_descr) > 100 ? substr($product_descr, 0, 100) . '...' : $product_descr; 
                         ?>
                     </p>
+                    <p class="location"><b>Location: </b><?php echo htmlspecialchars($product['location'] ?? 'Not specified'); ?></p>
+                    <p class="listing_created"><b>Listed: </b><?php echo date('j M Y', strtotime($product['listing_created'])); ?></p>
                 </div>
 
                 <a href="product_details.php?id=<?php echo $product['product_id']; ?>">View Details</a>

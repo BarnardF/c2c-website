@@ -24,7 +24,7 @@ $all_products = $conn->query($sql);
     <div class="jumbotron">
         <div class="container">
             <h1 class="display-4">Welcome to <?php echo SITE_NAME ?></h1>
-            <p class="lead">Your South African Customer-to-Customer E-commerce Platform.</p>
+            <!--<p class="lead">Your South African Customer-to-Customer E-commerce Platform.</p>-->
             <hr class="my-4">
             <p>Buy and sell items directly with other users in a safe and secure environment.</p>
         </div>
@@ -59,17 +59,19 @@ $all_products = $conn->query($sql);
                 <div class="caption">
                     <p class="title"><?php echo htmlspecialchars($row["title"]) ?></p>
                     <p class="price">R<?php echo number_format($row["price"], 2) ?></p>
-                    <p class="category_name"><?php echo htmlspecialchars($row["category_name"]) ?></p>
-                    <p class="product_condition"><b>Condition: </b><?php echo htmlspecialchars($row["product_condition"]) ?></p>
-                    <p class="location"><b>Location: </b><?php echo htmlspecialchars($row["location"]) ?></p>
-                    <p class="username"><b>Seller: </b><?php echo htmlspecialchars($row["username"]) ?></p>
-                    <p class="listing_created"><b><?php echo date("j M Y", strtotime($row['listing_created'])); ?></b></p>
+                    <!--<p class="category_name"><?php echo htmlspecialchars($row["category_name"]) ?></p>-->
+                    <!--<p class="product_condition"><b>Condition: </b><?php echo htmlspecialchars($row["product_condition"]) ?></p>-->
+                    
+                    <!--<p class="username"><b>Seller: </b><?php echo htmlspecialchars($row["username"]) ?></p>-->
+                    
                     <p class="product_descr">
                         <?php 
                         $product_descr = htmlspecialchars($row['product_descr']);
                         echo strlen($product_descr) > 100 ? substr($product_descr, 0, 100) . '...' : $product_descr; 
                         ?>
                     </p>
+                    <p class="location"><b>Location: </b><?php echo htmlspecialchars($row["location"]) ?></p>
+                    <p class="listing_created"><b>Listed: </b><?php echo date("j M Y", strtotime($row['listing_created'])); ?></p>
                 </div>
 
                 <a href="product_details.php?id=<?php echo $row['product_id'] ?>">View Details</a>

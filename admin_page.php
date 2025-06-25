@@ -62,27 +62,32 @@ if (isset($_POST['delete_user']) && isset($_POST['user_id'])) {
     try {
         $conn->begin_transaction();
 
+
+        //Delete all purchases made BY this user
+        $stmt_uB = $conn->prepare("DELETE FROM purchases WHERE user_id = ?");
+        $stmt_uB->bind_param("i", $user_id);
+        $stmt_uB->execute();        
+
         //delete all purchases related to this user's products
-        $stmt1 = $conn->prepare("
+        $stmt_uP = $conn->prepare("
             DELETE purchases FROM purchases 
             INNER JOIN products ON purchases.product_id = products.product_id 
             WHERE products.user_id = ?
         ");
-        $stmt1->bind_param("i", $user_id);
-        $stmt1->execute();
+        $stmt_uP->bind_param("i", $user_id);
+        $stmt_uP->execute();
         
-
         //delete all products belonging to this user
-        $stmt2 = $conn->prepare("DELETE FROM products WHERE user_id = ?");
-        $stmt2->bind_param("i", $user_id);
-        $stmt2->execute();
+        $stmt_uPr = $conn->prepare("DELETE FROM products WHERE user_id = ?");
+        $stmt_uPr->bind_param("i", $user_id);
+        $stmt_uPr->execute();
 
         //finally delete the user
-        $stmt3 = $conn->prepare("DELETE FROM users WHERE user_id = ?");
-        $stmt3->bind_param("i", $user_id);
-        $stmt3->execute();
+        $stmt_U = $conn->prepare("DELETE FROM users WHERE user_id = ?");
+        $stmt_U->bind_param("i", $user_id);
+        $stmt_U->execute();
 
-        if ($stmt3->affected_rows > 0) {
+        if ($stmt_U->affected_rows > 0) {
             $conn->commit();
             $_SESSION['success'] = 'User and all related data have been deleted successfully';
         } else {
@@ -90,9 +95,10 @@ if (isset($_POST['delete_user']) && isset($_POST['user_id'])) {
             $_SESSION['errors'] = ['Failed to delete user (user may not exist)'];
         }
 
-        $stmt1->close();
-        $stmt2->close();
-        $stmt3->close();
+        $stmt_uB->close();
+        $stmt_uP->close();
+        $stmt_uPr->close();
+        $stmt_U->close();
     } catch (Exception $e) {
         $conn->rollback();
         $_SESSION['errors'] = ['Error deleting user: ' . $e->getMessage()];

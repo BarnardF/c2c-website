@@ -75,11 +75,12 @@ if ($_SESSION['user_id'] == $product['user_id']) {
         
         <div class="caption">
             <p class="title"><?php echo htmlspecialchars($product['title']); ?></p>
-            <p class="username"><b>Seller: </b><?php echo htmlspecialchars($product['username']); ?></p>
             <p class="product_condition"><b>Condition: </b><?php echo htmlspecialchars($product['product_condition']); ?></p>
             <p class="location"><b>Location: </b><?php echo htmlspecialchars($product['location']); ?></p>
+            
 
-            <p class="shipping_options"> <b>
+
+            <p class="shipping_options"> <b>Pickup/delivery: </b>
                 <?php 
                 $shipping = $product['shipping_options'];
                 $shipping_display = [
@@ -89,8 +90,8 @@ if ($_SESSION['user_id'] == $product['user_id']) {
                 ];
                 echo isset($shipping_display[$shipping]) ? $shipping_display[$shipping] : ucfirst($shipping);
                 ?>
-                </b>
             </p>
+            <p class="username"><b>Seller: </b><?php echo htmlspecialchars($product['username']); ?></p>
 
             <p class="total">Total: R<?php echo number_format($product['price'], 2); ?></p>
         </div>
@@ -125,7 +126,9 @@ if ($_SESSION['user_id'] == $product['user_id']) {
                    value="<?php echo htmlspecialchars($_SESSION['form_data']['email'] ?? ''); ?>" required>
         </div>
 
-        <button type="submit" class="button">Complete Purchase</button>
+        <div class="button-container">
+            <button type="submit" class="button">Complete Purchase</button>
+        </div>
         
         <div class="links">
             No money? <a href="product_details.php?id=<?php echo $product_id; ?>">Cancel</a>
