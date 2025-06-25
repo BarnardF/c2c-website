@@ -33,6 +33,7 @@ main {
     margin-bottom: 15px;
     text-align: center;
     box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    padding: 40px 20px;
 }
 
 .jumbotron .container {
@@ -119,6 +120,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-top: 8px;
 }
 
 
@@ -198,7 +200,7 @@ main {
 }
 
 
-.card .product_condition, .card .location, .card .username, .card .listing_created, .card .product_descr {
+.card .product_condition, .card .location, .card .username, .card .listing_created, .card .product_descr, .card .shipping_options{
     color: #333;
     font-size: 15px;
     margin-bottom: 5px;
