@@ -22,7 +22,7 @@
 - User registration and authentication
 - Product listing and browsing
 - Category-based filtering
-- Secure purchase system
+- "Secure purchase system"
 - Admin dashboard
 - Responsive design
 - Image upload functionality
@@ -32,16 +32,7 @@
 ## System Requirements
 
 ### Server Requirements
-- **PHP**: Version 7.4 or higher
-- **MySQL**: Version 5.7 or higher
-- **Web Server**: Apache or Nginx
-- **File Upload**: Support for file uploads (max 5MB)
-
-### Browser Compatibility
-- Chrome 70+
-- Firefox 65+
-- Safari 12+
-- Edge 79+
+XAMPP for MySQL and Apache
 
 ---
 
@@ -126,12 +117,7 @@ if ($conn->connect_error) {
 ?>
 ```
 
-### 3. File Permissions
-- Set upload directory permissions to 755
-- Ensure web server can write to upload directories
-- Create `uploads/products/` directory for product images
-
-### 4. Product Listing Logic
+### 3. Product Listing Logic
 Create `add_prod_logic.php` in the root directory to handle product listing submissions:
 
 ```php
@@ -224,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ## Database Structure
 
-### Tables Overview
+### Tables 
 
 #### users
 - Stores user account information
@@ -247,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ---
 
-## File Structure
+## File structure
 
 ```
 project-root/
@@ -369,20 +355,12 @@ project-root/
 #### System Statistics
 - Total users count
 - Total products (available/sold)
-- Total purchases and revenue
+- Total purchases
 
 #### User Product Summary
 - Comprehensive table showing:
   - Username and email
   - Product counts by user
-  - Earnings per user
-  - Available vs sold products
-
-### Managing the Platform
-- Monitor user activity
-- Track sales performance
-- Identify top sellers
-- Revenue tracking
 
 ---
 
@@ -392,14 +370,12 @@ project-root/
 - **Password Hashing**: Uses PHP's password_hash() with default algorithm
 - **SQL Injection Prevention**: Prepared statements throughout
 - **XSS Protection**: htmlspecialchars() on all user inputs
-- **Session Management**: Proper session handling and logout
 - **Input Validation**: Server-side validation for all forms
 - **File Upload Security**: Type and size restrictions on images
 
 ### User Experience Features
 - **Responsive Design**: Works on desktop, tablet, and mobile
 - **Image Preview**: Shows selected image before upload
-- **Form Retention**: Keeps form data on validation errors
 - **Success/Error Messages**: Clear feedback for all actions
 - **Password Toggle**: Show/hide password functionality
 
@@ -441,66 +417,3 @@ The `add_prod_logic.php` file handles the server-side processing for product lis
 This backend logic ensures data integrity, security, and proper user experience during the product listing process.
 
 ---
-
-## Troubleshooting
-
-### Common Issues
-
-#### "Database Connection Failed"
-- Check database credentials in config.php
-- Ensure MySQL service is running
-- Verify database exists and user has proper permissions
-
-#### "File Upload Error"
-- Check upload directory exists and has write permissions
-- Verify file size is under 5MB
-- Ensure file type is JPG or PNG
-
-#### "Session Issues"
-- Check session_start() is called before any output
-- Verify server supports sessions
-- Clear browser cookies if needed
-
-#### "Admin Dashboard Not Accessible"
-- Ensure is_admin field is set to 1 in users table
-- Log out and log back in after setting admin flag
-
-### Error Messages
-The platform provides clear error messages for:
-- Invalid login credentials
-- Registration conflicts (duplicate email/username)
-- Form validation errors
-- File upload issues
-- Purchase processing problems
-
-### Getting Help
-1. Check server error logs for PHP errors
-2. Use browser developer tools for JavaScript issues
-3. Verify database table structure matches requirements
-4. Ensure all required files are uploaded to server
-
----
-
-## Additional Notes
-
-### Customization
-- Modify `includes/config.php` for site-specific settings
-- Update `assets/css/styles.css` for design changes
-- Add new categories directly to database
-- Extend user profile fields as needed
-
-### Maintenance
-- Regularly backup database
-- Monitor upload directory size
-- Clean up old product images periodically
-- Update PHP and MySQL as needed
-
-### Performance Tips
-- Add database indexes for frequently queried columns
-- Optimize images before upload
-- Consider caching for high-traffic sites
-- Regular database maintenance
-
----
-
-*This manual covers the basic functionality of the BoomGom e-commerce platform. For advanced customization or additional features, consult the source code and database structure.*
