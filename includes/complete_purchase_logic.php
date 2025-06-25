@@ -43,7 +43,7 @@ if (!$product) {
 // Check if user is trying to buy their own product
 if ($product['user_id'] == $user_id) {
     $_SESSION['errors'] = ["You cannot purchase your own product"];
-    redirect('../product_details.php?id=' . $product_id);
+    redirect('../browse_products.php?id=' . $product_id);
 }
 
 // Get the logged-in user's email from database
