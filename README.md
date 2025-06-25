@@ -10,7 +10,6 @@
 7. [Admin Guide](#admin-guide)
 8. [Features](#features)
 9. [Security Features](#security-features)
-10. [Troubleshooting](#troubleshooting)
 
 ---
 
