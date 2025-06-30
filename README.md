@@ -15,7 +15,7 @@
 
 ## Project Overview
 
-**BoomGom** is a South African Customer-to-Customer (C2C) e-commerce platform built with PHP, MySQL, HTML, CSS, and JavaScript. It enables users to buy and sell items directly with each other in a secure environment.
+**BoomGom** is a Customer-to-Customer (C2C) e-commerce platform built with PHP, MySQL, HTML, CSS, and JavaScript and using Bootstap 5. It enables users to buy and sell items directly with each other in a secure environment.
 
 ### Key Features
 - User registration and authentication
