@@ -94,7 +94,7 @@ CREATE TABLE purchases (
 
 ### 2. Configuration Files
 
-Create `includes/config.php`:
+Configure database connection at `includes/config.php`:
 ```php
 <?php
 session_start();
@@ -106,15 +106,6 @@ define('DB_NAME', 'your_database_name');
 ?>
 ```
 
-Create `includes/db_connect.php`:
-```php
-<?php
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-```
 ---
 
 ## Database Structure
