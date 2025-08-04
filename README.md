@@ -1,4 +1,4 @@
-# BoomGom E-commerce Platform - User Manual(ai did help make this)
+# BoomGom E-commerce Platform - User Manual(ai did help make this README file)
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
